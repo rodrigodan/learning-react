@@ -9,32 +9,37 @@ class App extends Component{
 
     /* state is a component object*/
     this.state = {
-      string: 'Hello Rodrigo'
-    }
+     monsters: [
+      {
+        name: 'Frankenstein',
+        id: 'asc1'
+      },
+      {
+        name: 'Dracula',
+        id: 'asc2'
+      },
+      {
+        name: 'zombie',
+        id: 'asc3'
+      }
+    ]
+   }
   }
 
   render(){
     return(
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>{this.state.string}</p>
-
-          {/* setState is a component function */}
-          {/* setState comes with all properties we're gonna change in our state */}
-          <button onClick = {() => this.setState({ string: 'Hello Rodrigo Gonçalves Daniel' })}>
-            Change the text
-          </button>
-
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      {/* react needs to know what elements it need to update */}
+      {/* if one of this elements in our array has a value that changes*/}
+      {/* without that that, our jsx would need to re render everything every time */}
+        {/* And that is heaaaavy */}
+        {/* then, with monsters.key inside h1 */}
+        {/* I can know what element changes and update just that instead of thousands */}
+        {  
+          this.state.monsters.map(monsters => (
+            <h1 key = {monsters.id}> {monsters.name} </h1>
+          )) 
+        }
       </div>
     )
   }
