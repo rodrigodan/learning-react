@@ -5,6 +5,8 @@ import {CardList} from './components/card-list/card-list.components';
 
 import './App.css';
 
+import {SearchBox} from './components/search-box/search-box.component';
+
 class App extends Component{
 
   constructor(){
@@ -36,12 +38,13 @@ class App extends Component{
     return(
       <div className="App"> 
 
-      <input 
-        type = 'search' 
-        placeholder = 'search monsters' 
-        onChange = { e => this.setState({searchField: e.target.value})} 
-      />
+    
+      <SearchBox
+        // reusable code, cause we would use any other kind of stuff instead of search monster, like search people
+        placeholder = 'search monsters'
+        handleChange = { e => this.setState({searchField: e.target.value})} 
 
+      />
       {/* the props is gonna be any parameter that pass in the CardList */}
       {/* then, if we say we have a props name */}
       {/* any atribute we create inside the CardList tag is gonna be props object atribute
