@@ -12,7 +12,8 @@ class App extends Component{
 
     /* state is a component object*/
     this.state = {
-     monsters: []
+     monsters: [],
+     searchField: ''
    }
   }
 
@@ -28,6 +29,12 @@ class App extends Component{
   render(){
     return(
       <div className="App">
+
+      <input 
+        type = 'search' 
+        placeholder = 'search monsters' 
+        onChange = { e => this.setState({searchField: e.target.value})} 
+      />
 
       {/* the props is gonna be any parameter that pass in the CardList */}
       {/* then, if we say we have a props name */}
