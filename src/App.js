@@ -27,8 +27,14 @@ class App extends Component{
   }
 
   render(){
+    // destructing state:
+    const { monsters, searchField} = this.state;
+
+    const filteredMonsters = monsters.filter(monster => 
+      monster.name.toLowerCase().includes(searchField.toLowerCase()))
+
     return(
-      <div className="App">
+      <div className="App"> 
 
       <input 
         type = 'search' 
@@ -42,7 +48,7 @@ class App extends Component{
       in the card list */}
       {/* also, it has some other atrbute called children  */}
       {/* this children is any element inside the tag CardList */}
-      <CardList monsters = {this.state.monsters}>
+      <CardList monsters = {filteredMonsters}>
 
         } 
       </CardList>
